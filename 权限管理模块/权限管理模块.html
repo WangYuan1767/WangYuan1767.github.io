@@ -1,0 +1,952 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>遇见不可预见 | 遇见不可预见</title><meta name="author" content="Rain"><meta name="copyright" content="Rain"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1、权限管理模块1.1角色管理接口  仅需对role单表进行增删改查等操作   角色列表–条件分页查询（角色名称模糊查询） 角色添加 角色修改（根据id查询用和修改） 角色删除 角色批量删除  1.2用户管理接口     多对多关系：一个用户可以有多个角色；一个角色也可以分配给多个用户 用一个admin_role关系表将admin用户表和role角色表进行关联，对多表进行增删改查等操作   用户列">
+<meta property="og:type" content="website">
+<meta property="og:title" content="遇见不可预见">
+<meta property="og:url" content="http://example.com/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97.html">
+<meta property="og:site_name" content="遇见不可预见">
+<meta property="og:description" content="1、权限管理模块1.1角色管理接口  仅需对role单表进行增删改查等操作   角色列表–条件分页查询（角色名称模糊查询） 角色添加 角色修改（根据id查询用和修改） 角色删除 角色批量删除  1.2用户管理接口     多对多关系：一个用户可以有多个角色；一个角色也可以分配给多个用户 用一个admin_role关系表将admin用户表和role角色表进行关联，对多表进行增删改查等操作   用户列">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2024-08-22T08:47:58.381Z">
+<meta property="article:modified_time" content="2024-08-22T08:47:58.381Z">
+<meta property="article:author" content="Rain">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="http://example.com/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '遇见不可预见',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-08-22 16:47:58'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="遇见不可预见"><span class="site-name">遇见不可预见</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">遇见不可预见</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><h1 id="1、权限管理模块"><a href="#1、权限管理模块" class="headerlink" title="1、权限管理模块"></a>1、权限管理模块</h1><h2 id="1-1角色管理接口"><a href="#1-1角色管理接口" class="headerlink" title="1.1角色管理接口"></a>1.1角色管理接口</h2><p><img src="/./images/dd34bab40b3ea86867884a333edee91.png"></p>
+<blockquote>
+<p>仅需对<strong>role单表</strong>进行增删改查等操作</p>
+</blockquote>
+<ul>
+<li>角色列表–条件分页查询（角色名称模糊查询）</li>
+<li>角色添加</li>
+<li>角色修改（根据id查询用和修改）</li>
+<li>角色删除</li>
+<li>角色批量删除</li>
+</ul>
+<h2 id="1-2用户管理接口"><a href="#1-2用户管理接口" class="headerlink" title="1.2用户管理接口"></a>1.2用户管理接口</h2><p><img src="/./images/8f7bcfdc2de12ca3abb2a0400d1b833.png"></p>
+<p><img src="/./images/de097a6b70a5020ca3f36903374c20a.png"></p>
+<p><img src="C:\Users\PC\Desktop\Java\SSYX笔记\images\6bfc4ca1481cafae82c6e776442c6d3.png"></p>
+<p><img src="/./images/a5323d1b3cc52f39b09dee4625ad400.png"></p>
+<blockquote>
+<p><strong>多对多关系</strong>：一个用户可以有多个角色；一个角色也可以分配给多个用户</p>
+<p>用一个<strong>admin_role关系表</strong>将<strong>admin用户表</strong>和<strong>role角色表</strong>进行关联，对<strong>多表</strong>进行增删改查等操作</p>
+</blockquote>
+<ul>
+<li>用户列表–条件分页查询（根据用户名或真实姓名进行查询）</li>
+<li>用户添加</li>
+<li>用户修改（根据id查询用和修改）</li>
+<li>用户删除</li>
+<li>用户批量删除</li>
+</ul>
+<h2 id="1-3为用户分配角色"><a href="#1-3为用户分配角色" class="headerlink" title="1.3为用户分配角色"></a>1.3为用户分配角色</h2><p><img src="/./images/5a20d9a14e692076d6c92fae2c742ad.png"></p>
+<blockquote>
+<p>1、查询<strong>所有角色列表</strong>（<strong>role表</strong>）和 根据<strong>用户id</strong>查询当前用户<strong>已分配的角色列表</strong>（<strong>admin_role表</strong>）Map封装</p>
+</blockquote>
+<ul>
+<li><p>查询所有角色<code>List&lt;Role&gt;</code></p>
+</li>
+<li><p>根据用户id 查询 admin_role表中当前用户已分配的角色数据<code>List&lt;AdiminRole&gt;</code></p>
+</li>
+<li><p>根据已分配的角色数据<code>List&lt;AdiminRole&gt;</code> ，获取其中的角色id到列表<code>List&lt;Long&gt;</code></p>
+</li>
+<li><p>创建一个<strong>新的<code>List&lt;Role&gt;</code>集合</strong>，用于存储当前用户已分配的角色名称</p>
+</li>
+<li><p>遍历所有角色列表<code>List&lt;Role&gt;</code>，判断所有角色id是否在当前用户已分配的角色id中，</p>
+<ul>
+<li>在则将<strong>整个角色信息Role</strong>封装到<strong>新的<code>List&lt;Role&gt;</code>集合</strong>中（这里的判断，是因为删除用户和角色时并未删除admin_role表中的对应关系）</li>
+</ul>
+</li>
+<li><p>将<strong>所有角色<code>List&lt;Role&gt;</code><strong>和</strong>新的<code>List&lt;Role&gt;</code>集合</strong>封装到<code>Map&lt;String,Object&gt;</code>中（“<code>key</code>”, <code>List&lt;Role&gt;</code>）</p>
+</li>
+</ul>
+<blockquote>
+<p>2、前端传来 <strong>用户id</strong> 和 <strong>角色ids列表</strong>：</p>
+<p>​	1）根据<strong>用户id</strong>在<strong>admin_role表</strong>中<strong>删除当前用户已分配</strong>的角色；</p>
+<p>​	2）将<strong>用户id</strong>和<strong>角色ids</strong>对应添加到<strong>admin_role表</strong>中;(可<strong>saveBatch(list)批量保存</strong>，list.add(adminRole))</p>
+</blockquote>
+<h2 id="1-4菜单管理接口（为角色动态分配菜单）"><a href="#1-4菜单管理接口（为角色动态分配菜单）" class="headerlink" title="1.4菜单管理接口（为角色动态分配菜单）"></a>1.4菜单管理接口（为角色动态分配菜单）</h2><p><img src="/./images/1718592742131.png"></p>
+<p><img src="/./images/1718592420668.jpg"></p>
+<blockquote>
+<p>1、层级关系显示,查询所有菜单列表</p>
+</blockquote>
+<ul>
+<li><p>查询所有菜单</p>
+</li>
+<li><p>编写一个工具类PermissionHelper,静态方法buildPermission(allList)</p>
+<ul>
+<li>创建一个List集合trees用于封装最终的数据；</li>
+<li>遍历allList集合，得到第一层数据pid&#x3D;0作为递归的入口</li>
+<li>然后设置层级level值，并加入trees集合中</li>
+</ul>
+</li>
+<li><p>遍历allList所有菜单数据，判断当前permission的id和allList中每个元素的pid是否一样</p>
+</li>
+<li><p>一样，就把数据封装到<strong>当前permission中的children属性中</strong>，</p>
+</li>
+<li><p>并且，继续<strong>递归往下封装</strong>子菜单</p>
+</li>
+</ul>
+<p><img src="/./images/1718595481404.jpg"></p>
+<p><img src="/./images/1718595399473.jpg"></p>
+<blockquote>
+<p>2、添加、修改、删除操作（重点说明递归删除操作：删除一个目录，连同子目录一同删除）</p>
+</blockquote>
+<ul>
+<li>创建一个<code>idList</code>用于收集所有需要删除的菜单id（当前目录id及其所有子目录id）</li>
+<li>递归获取当前菜单下所有子菜单，调用创建的递归函数<code>this.getAllPermissionId(id,idList)</code><ul>
+<li>递归函数中逻辑：</li>
+<li>根据当前菜单id查询下一级子菜单的id集合<code>childList</code>；</li>
+<li><strong>遍历childList</strong>，将每个子菜单id再次放入<code>this.getAllPermissionId(**item.getId()**,idList)</code>中</li>
+</ul>
+</li>
+<li>idList.add(id)加入当前id</li>
+<li><code>baseMapper.deleteBatchIds(idList)</code>批量删除所有</li>
+</ul>
+<p><img src="/./images/1718594028559.jpg"></p>
+<h2 id="1-5为角色分配菜单功能（与为用户分配角色类似）"><a href="#1-5为角色分配菜单功能（与为用户分配角色类似）" class="headerlink" title="1.5为角色分配菜单功能（与为用户分配角色类似）"></a>1.5为角色分配菜单功能（与为用户分配角色类似）</h2><blockquote>
+<p>1、查询<strong>所有菜单列表</strong>（<strong>permission表</strong>）和 根据<strong>角色id</strong>查询当前角色<strong>已分配的菜单列表</strong>（<strong>role_permission表</strong>）Map封装</p>
+<p>2、前端传来 <strong>角色id</strong> 和 <strong>菜单ids列表</strong>：</p>
+<p>​	1）根据<strong>角色id</strong>在<strong>role_permission表</strong>中<strong>删除当前角色已分配</strong>的角色；</p>
+<p>​	2）将<strong>角色id</strong>和<strong>菜单ids</strong>对应添加到<strong>role_permission表</strong>中;</p>
+</blockquote>
+<h1 id="2、系统管理模块（区域、仓库、开通区域）"><a href="#2、系统管理模块（区域、仓库、开通区域）" class="headerlink" title="2、系统管理模块（区域、仓库、开通区域）"></a>2、系统管理模块（区域、仓库、开通区域）</h1><p><img src="/./images/1718607688232.png"></p>
+<p><img src="/./images/1718608209300.png"></p>
+<p><img src="/./images/44775104513f359ff96ef5dd92bfb84.png"></p>
+<p><img src="/./images/70e52541123e9076834702d2a358dcb.png"></p>
+<p><img src="/./images/2360a0492f3ee671661700d5c09b928.png"></p>
+<ul>
+<li><p>开通区域列表接口（条件查询）</p>
+</li>
+<li><p>添加开通区域</p>
+<ul>
+<li>接口1：仓库下拉框中需要显示所有仓库列表</li>
+<li>接口2：区域框中需要实现模糊查询实现实时提示下拉框</li>
+<li>接口3：保存到region_ware表中<ul>
+<li>判断该区域是否已经开通（baseMapper.selectCount(wrapper)返回满足条件的数据条数）</li>
+<li>已开通则抛出自定义异常</li>
+<li>未开通则保存到region_ware表中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>删除开通区域（根据id删除）</p>
+</li>
+<li><p>取消开通区域（根据id查询到具体信息后，设置为传入的status状态值）</p>
+</li>
+</ul>
+<h1 id="3、商品信息管理模块"><a href="#3、商品信息管理模块" class="headerlink" title="3、商品信息管理模块"></a>3、商品信息管理模块</h1><blockquote>
+<p>1）attr表：<strong>平台属性</strong>表；（内部有attr_group_id，用于确定该属性的所属平台属性分组）</p>
+<p>2）attr_group：<strong>平台属性分组</strong>表；</p>
+<p>3）category：<strong>商品分类</strong>表；</p>
+<p>4）sku_attr_value：<strong>sku商品属性值</strong>表；</p>
+<p>5）sku_info：商品的<strong>基本信息</strong>；（用于描述该商品属于哪个分类、哪个平台属性分组、普通&#x2F;秒杀商品等）</p>
+<p>6）sku_image：上传的图片；</p>
+<p>7）sku_poster：上传的海报；</p>
+<p>8）sku_detail：sku商品的<strong>详细信息</strong>；</p>
+</blockquote>
+<h2 id="3-1商品分类"><a href="#3-1商品分类" class="headerlink" title="3.1商品分类"></a>3.1商品分类</h2><blockquote>
+<p>对<strong>category表</strong>进行增删改查操作</p>
+</blockquote>
+<ul>
+<li>对商品分类的增删改查操作</li>
+</ul>
+<p><img src="/./images/1718609153798.png"></p>
+<h2 id="3-2平台属性分组"><a href="#3-2平台属性分组" class="headerlink" title="3.2平台属性分组"></a>3.2平台属性分组</h2><blockquote>
+<p>平台属性：所有的商品属性都放在平台属性表中；</p>
+<p>平台属性分组：对商品属性进行组合为一个组别，可作为某个商品的属性集合信息；</p>
+</blockquote>
+<blockquote>
+<p>对<strong>attr_group表</strong>进行增删改查操作</p>
+</blockquote>
+<ul>
+<li>对平台属性分组的增删改查操作</li>
+</ul>
+<p><img src="/./images/1718611768917.jpg"></p>
+<blockquote>
+<p>对attr表进行增删改查操作</p>
+</blockquote>
+<ul>
+<li>根据平台属性分组的group_id在attr表中找到属于该分组的属性列表</li>
+<li>对平台属性的增删改查操作</li>
+</ul>
+<p><img src="/./images/bd702f9ff36414ed1b340b1c9a7fd19.png"></p>
+<h2 id="3-3SKU列表"><a href="#3-3SKU列表" class="headerlink" title="3.3SKU列表"></a>3.3SKU列表</h2><p><img src="/./images/1718610088428.png"></p>
+<ul>
+<li><p>条件分页查询</p>
+</li>
+<li><p>添加sku商品</p>
+<ul>
+<li><p>基本信息–sku_info表；.save(skuInfo)操作</p>
+<blockquote>
+<p>new 一个skuInfo对象，利用BeanUtils.copyProperties(skuInfoVo,skuInfo)将复制相同属性名的值</p>
+</blockquote>
+</li>
+<li><p>sku商品的平台属性</p>
+<ul>
+<li>attr表：通过平台属性分组显示对应的平台属性，供用户填值；</li>
+<li>sku_attr_value表：保存商品属性信息；</li>
+</ul>
+<blockquote>
+<p>传入attr_value列表，遍历每个元素，添加skuId，保存到sku_attr_value表中</p>
+</blockquote>
+</li>
+<li><p>sku商品的图片信息–sku_image表；</p>
+<blockquote>
+<p>传入image列表，遍历每个元素，添加skuId，保存到sku_image表中</p>
+</blockquote>
+</li>
+<li><p>sku商品的库存–sku_info表；</p>
+</li>
+<li><p>sku商品的海报–sku_poster表；</p>
+<blockquote>
+<p>传入poster列表，遍历每个元素，添加skuId，保存到sku_poster表中</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>修改sku商品（一对多关系表做修改：先删除后保存）</p>
+<ul>
+<li><p>基本信息–sku_info表；.updateById(skuInfo)</p>
+<blockquote>
+<p>new 一个skuInfo对象，利用BeanUtils.copyProperties(skuInfoVo,skuInfo)将复制相同属性名的值</p>
+</blockquote>
+</li>
+<li><p>sku商品的平台属性</p>
+<ul>
+<li>attr表：通过平台属性分组显示对应的平台属性，供用户填值；</li>
+<li>sku_attr_value表：保存商品属性信息；</li>
+</ul>
+<blockquote>
+<p>1）根据skuInfoVo中的skuId，删除sku_attr_value表中原有的属性；</p>
+<p>2）传入attr_value列表，遍历每个元素，添加skuId，保存到sku_attr_value表中</p>
+</blockquote>
+</li>
+<li><p>sku商品的图片信息–sku_image表；</p>
+<blockquote>
+<p>1）根据skuInfoVo中的skuId，删除sku_image表中原有的属性；</p>
+<p>2）传入image列表，遍历每个元素，添加skuId，保存到sku_image表中</p>
+</blockquote>
+</li>
+<li><p>sku商品的库存–sku_info表；</p>
+</li>
+<li><p>sku商品的海报–sku_poster表；</p>
+<blockquote>
+<p>1）根据skuInfoVo中的skuId，删除sku_poster表中原有的属性；</p>
+<p>2）传入poster列表，遍历每个元素，添加skuId，保存到sku_poster表中</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>删除sku商品</p>
+</li>
+<li><p>审核状态和新人专享状态</p>
+<blockquote>
+<p>skuInfo表中，根据skuId查询到对象，然后设置审核状态和新人专享状态的属性值，updateById()</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-4上传商品图片，阿里云oss存储图片"><a href="#3-4上传商品图片，阿里云oss存储图片" class="headerlink" title="3.4上传商品图片，阿里云oss存储图片"></a>3.4上传商品图片，阿里云oss存储图片</h2><h2 id="3-5商品上下架分析"><a href="#3-5商品上下架分析" class="headerlink" title="3.5商品上下架分析"></a>3.5商品上下架分析</h2><p><img src="/./images/1718616104472.png"></p>
+<ul>
+<li><p>service-product服务</p>
+<ul>
+<li><p>注册到Nacos中；</p>
+</li>
+<li><p>实现商品上下架的状态值更新；</p>
+</li>
+<li><p>将商品id发送到MQ中，由MQ异步传给service-search服务；</p>
+</li>
+</ul>
+</li>
+<li><p>service-search服务（专门做ES的相关操作）</p>
+<ul>
+<li>注册到Nacos中；</li>
+<li>监听MQ，接收商品id；</li>
+<li>根据商品id利用openFeign远程调用service-product服务中<strong>查询sku商品基本信息和分类信息</strong>的功能</li>
+<li>将商品信息同步到ES中（使用spring-data对ES进行操作）</li>
+</ul>
+<p>【注】创建接口SkuRepository 继承 ElasticsearchRepository&lt;实体类名，实体类中主键的类型&gt;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">SkuRepository</span> <span class="keyword">extends</span> <span class="title class_">ElasticsearchRepository</span>&lt;SkuEs,Long&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>service-product服务需要实现的接口</p>
+<ul>
+<li><p>接口1：根据skuId获取sku基本信息；</p>
+</li>
+<li><p>接口2：根据分类Id获取分类的信息；</p>
+</li>
+<li><p>接口3：商品上下架接口</p>
+<ul>
+<li><p>根据传入的状态值status判断上下架操作；</p>
+</li>
+<li><p>根据skuId获取skuInfo信息，并设置更新status值，updateById(skuInfo)更新数据库；</p>
+</li>
+<li><p>通过MQ同步数据到ES中（交换机名称：direct；路由key：upper&#x2F;lower；队列名称：upper&#x2F;lower；message：skuId）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitTemplate.convertAndSend(exchange, routingKey, message)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>创建一个service-client服务专门用来放所有的远程调用接口</p>
+<ul>
+<li><p>service-product-client模块中专门放product商品服务提供的远程接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务提供者在nacos中注册的名字</span></span><br><span class="line"><span class="meta">@FeignClient(value=&quot;service-product&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ProductFeignClient</span>&#123;</span><br><span class="line">    <span class="comment">//在controller中除方法体的方法定义部分拿过来；</span></span><br><span class="line">    <span class="comment">//补充完整请求路径部分</span></span><br><span class="line">    <span class="comment">//对于远程调用的方法返回值 不使用Result,使用实体类型更方便</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/api/product/inner/getCategory/&#123;categoryId&#125;&quot;)</span>    </span><br><span class="line">    <span class="keyword">public</span> Category <span class="title function_">getCategory</span><span class="params">(<span class="meta">@PathVariable</span> Long categoryId)</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;/api/product/inner/getSkuInfo/&#123;skuId&#125;&quot;)</span>    </span><br><span class="line">    <span class="keyword">public</span> SkuInfo <span class="title function_">getSkuInfo</span><span class="params">(<span class="meta">@PathVariable</span> Long skuId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>service-search服务需要实现的接口</p>
+<blockquote>
+<p>【注意】在服务调用者的启动类上要加上EnableFeignClients，才能完成openFeign的调用</p>
+</blockquote>
+<ul>
+<li><p>接口1：上架skuService中upperSku(skuId)</p>
+<ul>
+<li>通过远程调用productFeignClient.getSkuInfo()，根据skuId获取skuInfo相关信息</li>
+<li>通过远程调用productFeignClient.getCategory()，根据skuInfo.getCatedoryId()获取分类信息</li>
+<li>new一个SkuEs对象，setXxx所需要的相关信息</li>
+<li>注意，如果是秒杀商品，</li>
+<li>调用skuRepository.save(skuEs)添加到ES中</li>
+</ul>
+</li>
+<li><p>接口2：下架skuService中lowerSku(skuId)</p>
+<ul>
+<li>调用skuRepository.deleteById(skuId)在ES中删除该商品信息</li>
+</ul>
+</li>
+<li><p>创建一个消息接收类SkuReceiver用于监听并接收MQ的消息队列内容</p>
+<ul>
+<li><p>监听上架的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RabbitListener(bindings = @QueueBinding(</span></span><br><span class="line"><span class="meta">		value = @Queue(value=&quot;队列名称upper&quot;, durable=&quot;true&quot;),//持久化</span></span><br><span class="line"><span class="meta">        exchange = @Exchange(value=&quot;direct&quot;)</span></span><br><span class="line"><span class="meta">        key = &#123;&quot;upper&quot;&#125;//路由key</span></span><br><span class="line"><span class="meta">))</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*从Message中获取消息体:</span></span><br><span class="line"><span class="comment">*String messageBody = new String(message.getBody());</span></span><br><span class="line"><span class="comment">*如果需要获取消息头部信息:</span></span><br><span class="line"><span class="comment">*MessageProperties messageProperties = message.getMessageProperties();</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">upperSku</span><span class="params">(Long skuId, Message message, Channel channel)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(skuId!=<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="comment">//调用service层中的上架方法</span></span><br><span class="line">        skuService.upperSku(skuId)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//消费者 手动确认：参数1：消息标识； 参数2：是否是多条消息</span></span><br><span class="line">    channel.basicAck(message.getMessageProperties().getDeliveryTag(),<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监听下架的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RabbitListener(bindings = @QueueBinding(</span></span><br><span class="line"><span class="meta">		value = @Queue(value=&quot;队列名称lower&quot;, durable=&quot;true&quot;),//持久化</span></span><br><span class="line"><span class="meta">        exchange = @Exchange(value=&quot;direct&quot;)</span></span><br><span class="line"><span class="meta">        key = &#123;&quot;lower&quot;&#125;//路由key</span></span><br><span class="line"><span class="meta">))</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*从Message中获取消息体:</span></span><br><span class="line"><span class="comment">*String messageBody = new String(message.getBody());</span></span><br><span class="line"><span class="comment">*如果需要获取消息头部信息:</span></span><br><span class="line"><span class="comment">*MessageProperties messageProperties = message.getMessageProperties();</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">lowerSku</span><span class="params">(Long skuId, Message message, Channel channel)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(skuId!=<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="comment">//调用service层中的下架方法</span></span><br><span class="line">        skuService.lowerSku(skuId)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//消费者 手动确认：参数1：消息标识； 参数2：是否是多条消息</span></span><br><span class="line">    channel.basicAck(message.getMessageProperties().getDeliveryTag(),<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="4、营销活动管理"><a href="#4、营销活动管理" class="headerlink" title="4、营销活动管理"></a>4、营销活动管理</h1><blockquote>
+<p>1）activity_info表：营销活动信息表</p>
+<p>2）activity_rule表：营销活动规则表</p>
+<p>3）activity_sku表：活动参与商品表</p>
+<p>4）coupon_info表：优惠券信息表</p>
+<p>5）coupon_range表：优惠券范围表</p>
+<p>6）coupon_use：优惠券领用表</p>
+</blockquote>
+<h2 id="4-1营销活动管理"><a href="#4-1营销活动管理" class="headerlink" title="4.1营销活动管理"></a>4.1营销活动管理</h2><p><img src="/./images/1718713575126.png"></p>
+<ul>
+<li><p>营销活动列表–分页查询–activity_info表</p>
+<ul>
+<li><p>对于优惠券类型使用枚举类，需要单定义一个字段用于传递给前端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(exist = false)</span></span><br><span class="line"><span class="keyword">private</span> String activityTypeString;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意，在分页查询后，getRecords()分页后的列表信息，遍历并对该字段进行显示赋值</p>
+</li>
+</ul>
+</li>
+<li><p>营销活动添加&#x2F;修改&#x2F;删除：都对activity_info表进行单表操作</p>
+</li>
+</ul>
+<p><img src="/./images/1718769018673.png"></p>
+<ul>
+<li><p>营销活动规则–activity_rule表</p>
+<ul>
+<li><p>接口1：根据活动id获取活动规则的数据</p>
+<ul>
+<li><p>将活动规则的数据列表 和 拥有该活动的sku商品列表 封装到<code>Map&lt;String,Object&gt;</code>；</p>
+</li>
+<li><p>在activity_sku表中根据活动id获取所有的skuId形成一个列表；</p>
+</li>
+<li><p>远程调用service-product服务接口，根据skuIds列表获取拥有该活动的所有商品信息；</p>
+</li>
+<li><p>service-product服务中单写一个接口用于根据skuIds列表获取商品信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;SkuInfo&gt; skuInfoList = baseMapper.selectBatchIds(skuIdList);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>接口2：<code>保存按钮</code>添加活动的规则数据（一对多关系：先删再保存）</p>
+<ul>
+<li>在<code>activity_rule表</code>中，根据活动id删除之前的规则数据；</li>
+<li>再遍历前端传递的规则数据，显示设置活动id和活动类型；</li>
+<li>活动类型需要用根据活动id得到活动类型；</li>
+<li>最后保存到activity_rule表中。</li>
+<li>在<code>activity_sku表</code>中，根据活动id删除之前的sku商品数据；</li>
+<li>再遍历前端传递的sku商品信息，显示设置活动id；</li>
+<li>最后保存到activity_sku表中。</li>
+</ul>
+</li>
+<li><p>接口3：根据关键字查询匹配的sku信息</p>
+<ul>
+<li>远程调用service-product服务中接口（根据关键字查询sku匹配内容列表skuInfoList）</li>
+<li>【注意】如果根据关键字查询不到，直接返回空集合，不然会报错；</li>
+<li>使用stream列获取sku列表中的skuIdList</li>
+<li>过滤那些活动正在进行中的商品;(activity_infoactivity_sku表，resources&#x2F;mapper.xml中编写SQL)<ul>
+<li>查询两张表中skuid在skuIdList中的活动数据，并且在活动时间范围内的数据；</li>
+<li>遍历skuInfoList，过滤后，返回没有正在参加活动的商品信息；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.atguigu.ssyx.activity.mapper.ActivityInfoMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;ActivityRuleMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.atguigu.ssyx.model.activity.ActivityRule&quot;</span> <span class="attr">autoMapping</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;ActivitySkuMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.atguigu.ssyx.model.activity.ActivitySku&quot;</span> <span class="attr">autoMapping</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectExistSkuIdList&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Long&quot;</span>&gt;</span></span><br><span class="line">        select</span><br><span class="line">        sku.sku_id</span><br><span class="line">        from activity_info info</span><br><span class="line">        inner join activity_sku sku on sku.activity_id = info.id</span><br><span class="line">        <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;skuIdList != null&quot;</span>&gt;</span></span><br><span class="line">                and sku.sku_id in</span><br><span class="line">                <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;skuIdList&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">                    #&#123;item&#125;</span><br><span class="line">                <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            and now() between info.start_time and info.end_time</span><br><span class="line">        <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectActivityRuleList&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;ActivityRuleMap&quot;</span>&gt;</span></span><br><span class="line">    	select</span><br><span class="line">    	info.activity_type as activityType,</span><br><span class="line">rule.id,rule.activity_id,rule.condition_amount,rule.condition_num,rule.benefit_amount,rule.benefit_discount</span><br><span class="line">	    from activity_info info</span><br><span class="line">	    inner join activity_sku sku on sku.activity_id = info.id</span><br><span class="line">		inner join activity_rule rule on rule.activity_id = info.id</span><br><span class="line">	    where</span><br><span class="line">	    sku.sku_id = #&#123;skuId&#125;</span><br><span class="line">	    and now() between info.start_time and info.end_time</span><br><span class="line">		order by rule.condition_amount desc, rule.condition_num desc</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2优惠券管理"><a href="#4-2优惠券管理" class="headerlink" title="4.2优惠券管理"></a>4.2优惠券管理</h2><p><img src="/./images/835ad0ed163d426fa7507e175fa6e49.png"></p>
+<p><img src="/./images/1718773145632.jpg"></p>
+<p><img src="/./images/1718774310571.png"></p>
+<ul>
+<li>优惠券分页查询–coupon_info表<ul>
+<li>【注意】优惠券类型，单定一个字段couponTypeString代替原来枚举型，需要遍历分页结果显示赋值</li>
+</ul>
+</li>
+<li>添加优惠券–coupon_info表</li>
+<li>根据优惠券id查找优惠券基本信息–coupon_info表<ul>
+<li>【注意】优惠券类型，单定一个字段couponTypeString代替原来枚举型，需要对查询结果显示赋值</li>
+<li>【注意】优惠券范围类型，单定一个字段rangeTypeString代替原来枚举型，需要对查询结果显示赋值</li>
+</ul>
+</li>
+<li>在规则页面中 根据优惠券id查询 优惠券基本信息–coupon_info表 和 优惠券范围的数据–coupon_range表<ul>
+<li>根据优惠券id查找优惠券基本信息–coupon_info表</li>
+<li>根据优惠券id查找优惠券范围–coupon_range表<ul>
+<li>优惠券范围类型判断，分别封装到Map中不同的key中，返回Map给前端<ul>
+<li>SKU类型：则字段range_id指skuid，得到skuIdList，远程调用service-product服务中批量查询，封装商品信息到Map中；</li>
+<li>分类类型：则字段range_id指categoryid，得到categoryIdList，远程调用service-product服务中批量查询，封装分类信息到Map中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>添加优惠券规则数据<ul>
+<li>根据优惠券id删除coupon_range表中的数据；</li>
+<li>根据优惠券id查询coupon_info表中的couponInfo对象，然后setXxx更新coupon_info表中的相关数据；</li>
+<li>遍历优惠券范围的SKU&#x2F;分类的信息列表，加上优惠券id后，insert()保存到coupon_range表中；</li>
+</ul>
+</li>
+</ul>
+<h1 id="5、用户登录模块"><a href="#5、用户登录模块" class="headerlink" title="5、用户登录模块"></a>5、用户登录模块</h1><blockquote>
+<p>token：按照一定规则生成登录用户的唯一标识</p>
+<p>JWT作用：对token信息进行防伪；对生成的唯一标识进行编码加密处理；</p>
+</blockquote>
+<p>JwtHelper工具类</p>
+<ul>
+<li>根据userId + userName生成token字符串<ul>
+<li>Jwts.builder().claim(“”,value);放用户内容到私有部分;</li>
+<li>签名部分：加密方式，秘钥；.signWith(SignatureAlgorithm.HS512, tokenSignKey)</li>
+</ul>
+</li>
+<li>获取token中的用户存储内容<ul>
+<li>Jwts.parser().根据setSigningKey秘钥，parseClaimsJws解码token；</li>
+<li>再利用getbody()得到claim的值；</li>
+<li>claim.get(key)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JwtHelper</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//过期时间</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">tokenExpiration</span> <span class="operator">=</span> <span class="number">365</span>*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>;</span><br><span class="line">    <span class="comment">//加密的秘钥</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">tokenSignKey</span> <span class="operator">=</span> <span class="string">&quot;ssyx&quot;</span>;</span><br><span class="line">	<span class="comment">//Jwts.builder()：根据userId + userName生成token字符串</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">createToken</span><span class="params">(Long userId, String userName)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> Jwts.builder()</span><br><span class="line">            	<span class="comment">//token 分组</span></span><br><span class="line">                .setSubject(<span class="string">&quot;ssyx-USER&quot;</span>)</span><br><span class="line">            	<span class="comment">//token 过期时间</span></span><br><span class="line">                .setExpiration(<span class="keyword">new</span> <span class="title class_">Date</span>(System.currentTimeMillis() + tokenExpiration))</span><br><span class="line">            	<span class="comment">//.claim(key,value)放用户内容到私有部分</span></span><br><span class="line">                .claim(<span class="string">&quot;userId&quot;</span>, userId)</span><br><span class="line">                .claim(<span class="string">&quot;userName&quot;</span>, userName)</span><br><span class="line">            	<span class="comment">//签名：加密方式，秘钥</span></span><br><span class="line">                .signWith(SignatureAlgorithm.HS512, tokenSignKey)</span><br><span class="line">                .compressWith(CompressionCodecs.GZIP)</span><br><span class="line">                .compact();</span><br><span class="line">        <span class="keyword">return</span> token;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//获取token中的内容</span></span><br><span class="line">    <span class="comment">//根据setSigningKey秘钥，parseClaimsJws解码；再利用getbody()得到claim的值；claim.get(key)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Long <span class="title function_">getUserId</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isEmpty(token)) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        Jws&lt;Claims&gt; claimsJws = Jwts.parser().setSigningKey(tokenSignKey).parseClaimsJws(token);</span><br><span class="line">        <span class="type">Claims</span> <span class="variable">claims</span> <span class="operator">=</span> claimsJws.getBody();</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">userId</span> <span class="operator">=</span> (Integer)claims.get(<span class="string">&quot;userId&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> userId.longValue();</span><br><span class="line">        <span class="comment">// return 1L;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getUserName</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isEmpty(token)) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">        Jws&lt;Claims&gt; claimsJws = Jwts.parser().setSigningKey(tokenSignKey).parseClaimsJws(token);</span><br><span class="line">        <span class="type">Claims</span> <span class="variable">claims</span> <span class="operator">=</span> claimsJws.getBody();</span><br><span class="line">        <span class="keyword">return</span> (String)claims.get(<span class="string">&quot;userName&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">removeToken</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="comment">//jwttoken无需删除，客户端扔掉即可。</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-1用户授权登录接口"><a href="#5-1用户授权登录接口" class="headerlink" title="5.1用户授权登录接口"></a>5.1用户授权登录接口</h2><ul>
+<li><p>前端传来临时票据code；</p>
+</li>
+<li><p>拿着code + 小程序id + 小程序秘钥 利用StringBuffer拼接get请求地址，请求微信接口服务；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求地址格式：...?id=value&amp;name=value2</span></span><br><span class="line"><span class="type">StringBuffer</span> <span class="variable">baseAccessTokenUrl</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>()</span><br><span class="line">       .append(<span class="string">&quot;https://api.weixin.qq.com/sns/jscode2session&quot;</span>)</span><br><span class="line">       .append(<span class="string">&quot;?appid=%s&quot;</span>)</span><br><span class="line">       .append(<span class="string">&quot;&amp;secret=%s&quot;</span>)</span><br><span class="line">       .append(<span class="string">&quot;&amp;js_code=%s&quot;</span>)</span><br><span class="line">       .append(<span class="string">&quot;&amp;grant_type=authorization_code&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">tokenUrl</span> <span class="operator">=</span> String.format(baseAccessTokenUrl.toString(),</span><br><span class="line">        ConstantPropertiesUtil.WX_OPEN_APP_ID,</span><br><span class="line">        ConstantPropertiesUtil.WX_OPEN_APP_SECRET,</span><br><span class="line">        code);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请求微信接口服务，返回两个值： session_key 和 openId</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//result返回结果是一个字符串</span></span><br><span class="line">result = HttpClientUtils.get(tokenUrl);</span><br><span class="line"><span class="comment">//JSONObject.parseObject将result转成json对象后取值</span></span><br><span class="line"><span class="type">JSONObject</span> <span class="variable">resultJson</span> <span class="operator">=</span> JSONObject.parseObject(result);</span><br><span class="line"><span class="keyword">if</span>(resultJson.getString(<span class="string">&quot;errcode&quot;</span>) != <span class="literal">null</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">SsyxException</span>(ResultCodeEnum.FETCH_ACCESSTOKEN_FAILD);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">String</span> <span class="variable">session_key</span> <span class="operator">=</span> resultJson.getString(<span class="string">&quot;session_key&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> resultJson.getString(<span class="string">&quot;openid&quot;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加微信用户信息到数据库里：</p>
+<ul>
+<li>根据openId是否存在user表中，判断是否是第一次使用微信授权登录；<ul>
+<li>getUserByOpenId()得到user对象；</li>
+<li>若为空，则显示赋值后保存到数据库user表中</li>
+</ul>
+</li>
+<li>根据userId查询提货点和团长信息；<ul>
+<li>userId在user_delivery表中可查到leaderId；（一个用户可有多个地址，采用default为1字段选中）</li>
+<li>leaderId在leader表中可查到<strong>提货点信息</strong>和<strong>团长信息</strong>；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用JWT工具根据userId和userName生成token字符串</p>
+</li>
+<li><p>获取当前登录用户信息，放到redis里，设置有效时间；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">redisTemplate.opsForValue().set(user.getId(),</span><br><span class="line">                                userLoginVo, </span><br><span class="line">                                RedisConst.USERKEY_TIMEOUT, </span><br><span class="line">                                TimeUnit.DAYS);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>封装到Map中返回数据；</p>
+<ul>
+<li>user信息</li>
+<li>token信息</li>
+<li>提货点和团长信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-2判断是否为登录状态正常使用后续功能"><a href="#5-2判断是否为登录状态正常使用后续功能" class="headerlink" title="5.2判断是否为登录状态正常使用后续功能"></a>5.2判断是否为登录状态正常使用后续功能</h2><p>登录的流程</p>
+<p><img src="/./images/1718860006178.png"></p>
+<ul>
+<li>AuthContextHolder工具类：将用户登录信息保存到ThreadLocal里；从ThreadLocal里获取用户登录信息；</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Long&gt; userId = <span class="keyword">new</span> <span class="title class_">ThreadLocal</span>&lt;Long&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Long <span class="title function_">getUserId</span><span class="params">()</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> userId.get();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setUserId</span><span class="params">(Long _userId)</span>&#123;</span><br><span class="line">       userId.set(_userId);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>添加拦截器</p>
+<ul>
+<li><p><code>UserLoginInterceptor</code>实现<strong>HandlerInterceptor接口</strong> 或 它的实现子类<strong>HandlerInterceptorAdapter</strong></p>
+</li>
+<li><p><strong>实现接口中的方法</strong>：</p>
+<ul>
+<li><strong>preHandle</strong>：在业务处理器<strong>处理请求之前被调用</strong>（本次需要获取请求头）<ul>
+<li><strong>request.getHeader</strong>(“token”); 从请求头中获取token；</li>
+<li><strong>JwtHelper.getUserId</strong>(token); JwtHelper工具类获取当前用户userId；</li>
+<li><strong>redisTemplate.opsForValue().get()</strong>; 查找redis中是否有当前用户userId；</li>
+<li>有则将用户信息<strong>setXxx放入ThreadLocal中</strong>，供后续功能使用；</li>
+<li>无则抛出自定义异常：提示未登录</li>
+</ul>
+</li>
+<li>postHandle：在业务处理器处理请求执行完成后</li>
+<li>afterCompletion：在完全处理完请求后被调用，可用于清理资源等</li>
+</ul>
+</li>
+<li><p><strong>创建配置类继承WebMvcConfigurer</strong>，配置拦截器需<strong>要拦截的路径</strong></p>
+<ul>
+<li>之前定义的拦截器<code>UserLoginInterceptor</code>new一个对象加到配置类中</li>
+<li>设置拦截的路径（小程序的所有接口）和不需要拦截的路径（登录接口）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> &#123;</span><br><span class="line">        <span class="comment">//添加自定义拦截器，设置路径</span></span><br><span class="line">        registry.addInterceptor(</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">UserLoginInterceptor</span>(redisTemplate))</span><br><span class="line">                .addPathPatterns(<span class="string">&quot;/api/**&quot;</span>)</span><br><span class="line">                .excludePathPatterns(<span class="string">&quot;/api/user/weixin/wxLogin/*&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="6、首页显示"><a href="#6、首页显示" class="headerlink" title="6、首页显示"></a>6、首页显示</h1><p><img src="/./images/20230317150341014.png"></p>
+<ul>
+<li><p>获取提货信息</p>
+<ul>
+<li>根据userId远程调用service-user服务接口获取当前用户提货地址（user表-user_delivery表-leader表）</li>
+</ul>
+</li>
+<li><p>获取所有分类</p>
+<ul>
+<li>远程调用service-product服务接口获取所有分类信息</li>
+</ul>
+</li>
+<li><p>获取新人专享商品（显示前3个）</p>
+<ul>
+<li>远程调用service-product服务接口获取新人专享商品</li>
+<li>显示前3个（按照库存排序）<ul>
+<li>遍历前3个值返回；</li>
+<li>分页思想，取第一页；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取爆款商品（显示前5个）</p>
+<ul>
+<li>远程调用service-search服务接口获取爆款商品</li>
+<li>显示前5个（按照ES中每个字段的score排序）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取爆品商品</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> List&lt;SkuEs&gt; <span class="title function_">findHotSkuList</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">//springData中分页对象是Pageable，注意：0代表第1页</span></span><br><span class="line">    <span class="comment">//正常分页：PageRequest.of(page-1, limit);</span></span><br><span class="line">    <span class="type">Pageable</span> <span class="variable">pageable</span> <span class="operator">=</span> PageRequest.of(<span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line">    Page&lt;SkuEs&gt; pageModel = skuEsRepository.findByOrderByHotScoreDesc(pageable);</span><br><span class="line">    List&lt;SkuEs&gt; skuEsList = pageModel.getContent();</span><br><span class="line">    <span class="keyword">return</span> skuEsList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p><strong>【补充】springData使用规则：</strong></p>
+<p>1）find | get | read开头；</p>
+<p>2）涉及查询条件时，使用属性的首字母大写；</p>
+</blockquote>
+<h1 id="7、商品分类和商品搜索"><a href="#7、商品分类和商品搜索" class="headerlink" title="7、商品分类和商品搜索"></a>7、商品分类和商品搜索</h1><p><img src="/./images/20230317153507649.png"></p>
+<ul>
+<li>远程调用service-product服务接口获取所有分类信息</li>
+<li>远程调用service-search服务接口根据<strong>分类信息+仓库</strong>或<strong>分类+关键字</strong>，查询每个分类中的商品信息–ES中查询<ul>
+<li>根据当前的用户id 获取 仓库id；</li>
+<li>调用repository中springdata规定的格式方式，进行条件查询<ul>
+<li>findByCategoryIdAndWareId( , , pageable)</li>
+<li>findByKeyWordAndWareId( , , pageable)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="8、商品详情显示"><a href="#8、商品详情显示" class="headerlink" title="8、商品详情显示"></a>8、商品详情显示</h1><ul>
+<li>sku商品信息<ul>
+<li>根据商品skuid，远程调用service-product服务接口，获取基本信息&#x2F;图片等内容</li>
+</ul>
+</li>
+<li>更新sku商品热度<ul>
+<li>根据商品skuid，远程调用service-search服务接口，更新sku商品热度</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>通过<strong>多线程方式</strong>同时进行三个任务，使用completableFuture接口</p>
+</blockquote>
+<ul>
+<li>创建线程池配置类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadPoolConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> ThreadPoolExecutor <span class="title function_">threadPoolExecutor</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//  自定义线程池</span></span><br><span class="line">        <span class="type">ThreadPoolExecutor</span> <span class="variable">threadPoolExecutor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ThreadPoolExecutor</span>(</span><br><span class="line">                <span class="number">2</span>, </span><br><span class="line">                <span class="number">5</span>,</span><br><span class="line">                <span class="number">2</span>, </span><br><span class="line">                TimeUnit.SECONDS, </span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">ArrayBlockingQueue</span>&lt;&gt;(<span class="number">3</span>),</span><br><span class="line">                Executors.defaultThreadFactory(),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">ThreadPoolExecutor</span>.AbortPolicy()</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> threadPoolExecutor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>任务组合</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title function_">item</span><span class="params">(Long skuId, Long userId)</span> &#123;</span><br><span class="line">    <span class="comment">//每个任务处理完，奖结果放入Map中</span></span><br><span class="line">    Map&lt;String, Object&gt; result = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过skuId 查询skuInfo</span></span><br><span class="line">    CompletableFuture&lt;SkuInfoVo&gt; skuInfoCompletableFuture = CompletableFuture.supplyAsync(() -&gt; &#123;</span><br><span class="line">        <span class="comment">//sku基本信息</span></span><br><span class="line">        <span class="type">SkuInfoVo</span> <span class="variable">skuInfoVo</span> <span class="operator">=</span> productFeignClient.getSkuInfoVo(skuId);</span><br><span class="line">        result.put(<span class="string">&quot;skuInfoVo&quot;</span>, skuInfoVo);</span><br><span class="line">        <span class="keyword">return</span> skuInfoVo;</span><br><span class="line">    &#125;, threadPoolExecutor);</span><br><span class="line">    <span class="comment">//更新sku商品热度</span></span><br><span class="line">     CompletableFuture&lt;Void&gt; hotCompletableFuture = CompletableFuture.runAsync(() -&gt; &#123;</span><br><span class="line">        searchFeignClient.incrHotScore(skuId);</span><br><span class="line">    &#125;,threadPoolExecutor);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  任务组合：</span></span><br><span class="line">    CompletableFuture.allOf(</span><br><span class="line">            skuInfoCompletableFuture,</span><br><span class="line">            hotCompletableFuture</span><br><span class="line">    ).join();</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="9、购物车"><a href="#9、购物车" class="headerlink" title="9、购物车"></a>9、购物车</h1><h2 id="9-1添加商品到购物车"><a href="#9-1添加商品到购物车" class="headerlink" title="9.1添加商品到购物车"></a>9.1添加商品到购物车</h2><blockquote>
+<p>（当前用户id，skuId，skuNum）<code>BoundHashOperations&lt;String, String, CartInfo&gt;</code></p>
+</blockquote>
+<ul>
+<li>如果当前用户没有cartKey，则创建cartKey；然后进行下一步</li>
+<li>redisTemplate.boundHashOps(cartKey)获取缓存对象，从redis中根据当前用户获取购物车数据；</li>
+<li>hashOperations.hasKey(skuId.toString())判断购物车中是否有该商品<ul>
+<li>有，则获取购物车对象，更新其num数量，根据前端传来的+1和-1 进行加减操作；</li>
+<li>无，则第一次加入购物车，远程调用service-product服务接口获取商品信息，并设置num为1；</li>
+</ul>
+</li>
+<li>hashOperations.put(skuId.toString(), cartInfo); 更新缓存</li>
+<li>redisTemplate.expire(); 设置 key 的过期时间</li>
+</ul>
+<h2 id="9-2删除购物车"><a href="#9-2删除购物车" class="headerlink" title="9.2删除购物车"></a>9.2删除购物车</h2><ul>
+<li><p>删除某个商品 <code>deleteCart(Long skuId, Long userId)</code></p>
+<p>获取缓存对象–&gt;boundHashOps.hasKey()判断购物车中是否有该商品–&gt;boundHashOps.delete()</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取缓存对象</span></span><br><span class="line">BoundHashOperations&lt;String, String, CartInfo&gt; boundHashOps = <span class="built_in">this</span>.redisTemplate.boundHashOps(<span class="built_in">this</span>.getCartKey(userId));</span><br><span class="line"><span class="comment">//  判断购物车中是否有该商品！</span></span><br><span class="line"><span class="keyword">if</span> (boundHashOps.hasKey(skuId.toString()))&#123;</span><br><span class="line">	boundHashOps.delete(skuId.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>批量删除 <code>batchDeleteCart(List&lt;Long&gt; skuIdList, Long userId)</code></p>
+<p>获取缓存对象–&gt;遍历ids–&gt;boundHashOps.delete()</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取缓存对象</span></span><br><span class="line">BoundHashOperations&lt;String, String, CartInfo&gt; boundHashOps = <span class="built_in">this</span>.redisTemplate.boundHashOps(<span class="built_in">this</span>.getCartKey(userId));</span><br><span class="line">skuIdList.forEach(skuId -&gt; &#123;</span><br><span class="line">	hashOperations.delete(skuId.toString());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>清空 <code>deleteAllCart(Long userId)</code></p>
+<p>获取缓存对象–&gt;遍历缓存对象中所有值hashOperations.values()–&gt;boundHashOps.delete()</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取缓存对象</span></span><br><span class="line">BoundHashOperations&lt;String, String, CartInfo&gt; boundHashOps = <span class="built_in">this</span>.redisTemplate.boundHashOps(<span class="built_in">this</span>.getCartKey(userId));	</span><br><span class="line">hashOperations.values().forEach(cartInfo -&gt; &#123;</span><br><span class="line">	hashOperations.delete(cartInfo.getSkuId().toString());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-3购物车列表"><a href="#9-3购物车列表" class="headerlink" title="9.3购物车列表"></a>9.3购物车列表</h2><ul>
+<li>根据当前用户id创建缓存对象；</li>
+<li>创建一个list集合用于接收所有的购物车商品数据；</li>
+<li>list &#x3D; hashOperations.values()；返回list集合；</li>
+<li>【拓展】使用stream流遍历所有商品对象，写一个函数型接口用于时间排序；</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list = list.stream()</span><br><span class="line">           .sorted((p1, p2) -&gt; p1.getCreateTime() - p2.getCreateTime())</span><br><span class="line">           .collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-4更新购物车中的选中状态"><a href="#9-4更新购物车中的选中状态" class="headerlink" title="9.4更新购物车中的选中状态"></a>9.4更新购物车中的选中状态</h2><ul>
+<li><p>更新某个商品<code>checkCart(Long userId, Integer isChecked, Long skuId)</code></p>
+<p>获取缓存对象，根据选中的skuid，setXxx更新CartInfo的isChecked状态值；更新缓存内容</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取缓存对象</span></span><br><span class="line">	BoundHashOperations&lt;String, String, CartInfo&gt; boundHashOps = <span class="built_in">this</span>.redisTemplate.boundHashOps(<span class="built_in">this</span>.getCartKey(userId));</span><br><span class="line">	<span class="type">CartInfo</span> <span class="variable">cartInfo</span> <span class="operator">=</span> boundHashOps.get(skuId.toString());</span><br><span class="line">	<span class="keyword">if</span>(<span class="literal">null</span> != cartInfo) &#123;</span><br><span class="line">		cartInfo.setIsChecked(isChecked);</span><br><span class="line">		boundHashOps.put(skuId.toString(), cartInfo);</span><br><span class="line">		<span class="built_in">this</span>.setCartKeyExpire(cartKey);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>批量更新<code>batchCheckCart(List&lt;Long&gt; skuIdList, Long userId, Integer isChecked)</code></p>
+<p>获取缓存对象，遍历选中的skuid列表，setXxx更新CartInfo的isChecked状态值；更新缓存内容</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取缓存对象</span></span><br><span class="line">	BoundHashOperations&lt;String, String, CartInfo&gt; hashOperations = redisTemplate.boundHashOps(<span class="built_in">this</span>.getCartKey(userId));</span><br><span class="line">	skuIdList.forEach(skuId -&gt; &#123;</span><br><span class="line">		<span class="type">CartInfo</span> <span class="variable">cartInfo</span> <span class="operator">=</span> hashOperations.get(skuId.toString());</span><br><span class="line">		cartInfo.setIsChecked(isChecked);</span><br><span class="line">		hashOperations.put(cartInfo.getSkuId().toString(), cartInfo);</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>全选<code>checkAllCart(Long userId, Integer isChecked)</code></li>
+<li>获取缓存对象，遍历缓存对象中所有值hashOperations.values()，setXxx更新CartInfo的isChecked状态值；更新缓存内容</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BoundHashOperations&lt;String, String, CartInfo&gt; boundHashOps = <span class="built_in">this</span>.redisTemplate.boundHashOps(cartKey);</span><br><span class="line">boundHashOps.values().forEach(cartInfo -&gt; &#123;</span><br><span class="line">	cartInfo.setIsChecked(isChecked);</span><br><span class="line">	boundHashOps.put(cartInfo.getSkuId().toString(), cartInfo);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="10、商品订单"><a href="#10、商品订单" class="headerlink" title="10、商品订单"></a>10、商品订单</h1><h2 id="10-1确认订单"><a href="#10-1确认订单" class="headerlink" title="10.1确认订单"></a>10.1确认订单</h2><ul>
+<li><p>根据当前用户id远程调用service-user服务中接口，获取用户对应的提货点和团长信息</p>
+<p>（user表-user_delivery表-leader表）</p>
+</li>
+<li><p>根据当前用户id远程调用service-cart服务中接口，获取购物车里面选中的商品</p>
+<p>获取缓存对象，stream流过滤得到isChecked&#x3D;&#x3D;1的购物车对象</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BoundHashOperations&lt;String, String, CartInfo&gt; boundHashOps = <span class="built_in">this</span>.redisTemplate.boundHashOps(<span class="built_in">this</span>.getCartKey(userId));</span><br><span class="line">List&lt;CartInfo&gt; cartInfoCheckList = boundHashOps.values().stream()</span><br><span class="line">       .filter(cartInfo -&gt; cartInfo.getIsChecked().intValue() == <span class="number">1</span>;)</span><br><span class="line">       .collect(Collectors.toList());</span><br><span class="line"><span class="keyword">return</span> cartInfoCheckList;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成订单号–订单的唯一标识（防止重复，保存到redis中一份）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">orderNo</span> <span class="operator">=</span> System.currentTimeMillis()+<span class="string">&quot;&quot;</span>;<span class="comment">//IdWorker.getTimeId();</span></span><br><span class="line">redisTemplate.opsForValue().set(RedisConst.ORDER_REPEAT + orderNo, orderNo, <span class="number">24</span>, TimeUnit.HOURS);</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-2提交订单（分布式锁）"><a href="#10-2提交订单（分布式锁）" class="headerlink" title="10.2提交订单（分布式锁）"></a>10.2提交订单（分布式锁）</h2><ul>
+<li><p>根据当前用户id设置订单对象的userId</p>
+</li>
+<li><p>订单不能重复提交，需要验证是否重复提交（通过redis+lua脚本进行判断）</p>
+<ul>
+<li>获取传递过来的订单中的orderNo</li>
+<li>拿着orderNo到redis中查询（确认订单的时候已经在redis中放了orderNo）</li>
+<li>如果redis中有相同的orderNo，表示正常提交订单，把redis中orderNo删除；</li>
+<li>如果redis中没有相同的orderNo，表示重复提交订单，不往后执行；</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取传递过来的订单中的orderNo</span></span><br><span class="line"><span class="type">String</span> <span class="variable">orderNo</span> <span class="operator">=</span> orderSubmitVo.getOrderNo();</span><br><span class="line"><span class="keyword">if</span> (StringUtils.isEmpty(orderNo))&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">GmallException</span>(ResultCodeEnum.ILLEGAL_REQUEST);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//lua脚本：在redis中根据KEYS[1]取的值 和 ARGV[1]比较，相等则删除KEYS[1]</span></span><br><span class="line"><span class="type">String</span> <span class="variable">script</span> <span class="operator">=</span> <span class="string">&quot;if(redis.call(&#x27;get&#x27;, KEYS[1]) == ARGV[1]) then return redis.call(&#x27;del&#x27;, KEYS[1]) else return 0 end&quot;</span>;</span><br><span class="line"><span class="type">Boolean</span> <span class="variable">flag</span> <span class="operator">=</span> (Boolean)redisTemplate.execute(<span class="keyword">new</span> <span class="title class_">DefaultRedisScript</span>&lt;&gt;(script, Boolean.class), Arrays.asList(RedisConst.ORDER_REPEAT + orderNo), orderNo);</span><br><span class="line"><span class="keyword">if</span> (!flag)&#123;</span><br><span class="line">       <span class="comment">//提示重复提交</span></span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">GmallException</span>(ResultCodeEnum.REPEAT_SUBMIT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证库存（查询仓库里是否有充足的数量）并且   锁定库存（库存锁定购买数量（目前并没有真正减库存））</p>
+<ul>
+<li><p>远程调用service-cart服务接口，获取当前用户购物车中选中的商品；</p>
+</li>
+<li><p>把购物车中<code>List&lt;CartInfo&gt;</code>转换成<code>List&lt;SkuStockLockVo&gt;</code>；只有skuId, skunum和isLock</p>
+</li>
+<li><p>远程调用service-product服务接口<code>checkAndLock(skuStockLockVoList,orderNo)</code>，锁定商品</p>
+<ul>
+<li>判断skuStockLockVoList是否为空，空直接return；</li>
+<li>遍历skuStockLockVoList得到每个商品，this.checkLock(skuStockLockVo)验证库存并锁定库存，具备原子性；checkLock(skuStockLockVo)中需要分布式锁Redission<ul>
+<li>定义RLock rLock &#x3D; this.redissionClient.getFairLock(名字)</li>
+<li>rLock.lock加锁</li>
+<li>baseMapper.checkStock(skuId，skuNum)查stock-lock_stock&gt;skuNum，返回skuInfo对象；</li>
+<li>如果skuInfo对象为null，则超过库存，设置isLock为false，加锁失败；</li>
+<li>否则baseMapper.lockStock(skuId，skuNum)更新lock_stock+skuNum，返回影响行数；</li>
+<li>如果影响行数&#x3D;&#x3D;1，设置isLock为true，加锁成功；</li>
+</ul>
+</li>
+<li>只要有一个商品锁定失败，所有锁定成功的商品都解锁unLock()更新lock_stock-skuNum；return false;没有库存</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">flag = skuStockLockVoList.stream()</span><br><span class="line">    			  		 .anyMatch(skuStockLockVo -&gt; !skuStockLockVo.getIsLock());</span><br><span class="line"><span class="keyword">if</span>(flag)&#123;</span><br><span class="line">    <span class="comment">//所有锁都要解锁</span></span><br><span class="line">    skuStockLockVoList.stream()</span><br><span class="line">        			  .filter(skuStockLockVo::getIsLock)<span class="comment">//只对锁定的对象进行解锁</span></span><br><span class="line">                      .forEach(skuStockLockVo -&gt; &#123;</span><br><span class="line">					      baseMapper.unLockStock(skuStockLockVo.getSkuId(),</span><br><span class="line">                                                skuStockLockVo.getSkuNum());</span><br><span class="line">                      &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果所有商品都锁定成功了，redis缓存已成功锁定库存的订单号为key，（为了后面解锁和减库存）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForValue().set(orderNo , skuStockLockVoList);</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>远程调用返回Boolean类型，false则抛出异常，提示库存不足</p>
+</li>
+</ul>
+</li>
+<li><p>下单过程（向 订单信息表–order_info表 和 订单商品信息表–order_item表 添加数据）</p>
+<ul>
+<li>订单信息表–order_info表<ul>
+<li>根据提交的订单信息中的订单号 和 选中的购物车商品信息，计算该订单总金额</li>
+<li>根据当前用户id远程调用service-user服务接口提货点和团长信息</li>
+<li>封装数据到orderInfo对象中，并形成list列表，批量保存到数据库</li>
+</ul>
+</li>
+<li>订单商品信息表–order_item表（订单项）<ul>
+<li>根据选中的购物车商品信息，遍历加上当前订单号、当前用户id等信息，封装好后批量保存到数据库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>下单完成后删除购物车记录，service-order服务通过MQ发送userId，service-cart服务监听MQ操作redis删除</p>
+<ul>
+<li>根据userId查询选中的购物车商品记录</li>
+<li>遍历，得到skuId集合</li>
+<li>获得缓存对象，遍历skuId集合删除对应的skuId</li>
+</ul>
+</li>
+<li><p>返回订单id</p>
+</li>
+</ul>
+<h2 id="10-3订单详情信息"><a href="#10-3订单详情信息" class="headerlink" title="10.3订单详情信息"></a>10.3订单详情信息</h2><ul>
+<li>根据orderId查询订单的基本信息–order_info表</li>
+<li>根据orderId查询订单所有订单项list集合–order_item表</li>
+<li>查询所有订单项为一个列表，封装到订单对象orderInfo里面的<code>List&lt;Item&gt;</code></li>
+</ul>
+<h1 id="11、订单支付"><a href="#11、订单支付" class="headerlink" title="11、订单支付"></a>11、订单支付</h1><ul>
+<li>调用微信支付系统生成预付单<ul>
+<li>向payment_info支付记录表 添加记录，目前状态：正在支付中<ul>
+<li>通过orderNo查询payment_info表中是否记录过；</li>
+<li>paymentInfo&#x3D;&#x3D;null，则远程调用service-order服务接口，根据orderNo获取订单信息，封装后添加到payment_info支付记录表中；</li>
+</ul>
+</li>
+<li>封装微信支付系统接口中需要的参数paramMap<ul>
+<li>appid：商户号</li>
+<li>out_trade_no：订单标识</li>
+<li>total_fee：支付金额</li>
+<li>spbill_create_ip：客户端的ip</li>
+<li>notify_url：支付完成后，微信调用哪个路径</li>
+<li>trade_type：调用的接口类型JSAPI</li>
+<li>openId：登录时放在了redis里，根据当前用户id到redis中获取openId</li>
+</ul>
+</li>
+<li>使用HttpClient调用微信支付系统固定的接口<ul>
+<li>使用<code>client.setXmlParam()</code>设置参数，并且需要将商户key和上面的paramMap利用<code>WXPayUtil.generateSignedXml</code>转为xml格式进行传参</li>
+<li>client.post()；发送请求</li>
+</ul>
+</li>
+<li>调用微信支付系统接口之后，返回结果中包含prepay_id<ul>
+<li>client.getConcent()得到xml格式的返回值</li>
+<li>使用WXPayUtil.xmlToMap()将结果转成Map格式</li>
+</ul>
+</li>
+<li>新建一个Map，封装需要的数据–包含预付单的标识prepay_id<ul>
+<li>预付单标识要以固定格式存在packages中<code>packages = &quot;prepay_id=&quot;+prepayId</code></li>
+<li>通过WXPayUtil.generateSignature()将封装的参数生成一个签名</li>
+<li>返回部分微信中约定好，需要的数据即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>查询订单支付状态<ul>
+<li>调用微信支付系统接口查询订单支付状态<ul>
+<li>封装参数转为xml格式，client.post()发送请求，调用微信支付系统固定的接口</li>
+<li>微信系统中返回的xml内容转为map，返回结果</li>
+</ul>
+</li>
+<li>微信支付系统返回的map为null，支付失败<ul>
+<li>修改支付记录表状态（未支付）</li>
+<li>修改订单表中订单状态（待付款）</li>
+</ul>
+</li>
+<li>微信支付系统返回的map中的trade_state为SUCCESS，支付成功<ul>
+<li>根据返回值中的out_trade_no订单号标识，修改支付记录表状态（已支付）<ul>
+<li>查询支付记录表状态是否为（已支付），未支付才更新状态</li>
+</ul>
+</li>
+<li>修改订单表中订单状态（待发货）<ul>
+<li>service-payment服务发送orderNo给MQ，service-order服务监听MQ<ul>
+<li>根据orderNo查询订单表，并修改订单状态（待发货）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>库存扣减，库存锁定值lockStock解锁（恢复原值）<ul>
+<li>service-order服务发送orderNo给MQ，service-product服务监听MQ<ul>
+<li>根据orderNo从redis中获取锁定库存的skuStockLockVoList相关信息</li>
+<li>遍历后对每个对象，根据skuStockLockVo中的skuid和skuNum，操作product_info表</li>
+<li>stock &#x3D; stock - skuNum; lock_stock &#x3D; lock_stock + skuNum; 销量sale &#x3D;sale + skuNum</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="12、订单查询"><a href="#12、订单查询" class="headerlink" title="12、订单查询"></a>12、订单查询</h1><ul>
+<li>获取当前用户id，查询order_info表，找到该用户所有的订单</li>
+<li>根据所有的订单标识orderNo，遍历每个订单去查询order_item表，找到所有的订单项</li>
+<li>将订单项对应封装到每个订单中的订单项列表属性中</li>
+</ul>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rain</div><div class="author-info__description">快乐小猿</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/08/22/hello-world/" title="Hello World">Hello World</a><time datetime="2024-08-22T04:33:00.341Z" title="发表于 2024-08-22 12:33:00">2024-08-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-22T09:08:27.625Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Rain</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
